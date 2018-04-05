@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRefProductTypesTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateRefProductTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ref_product_types', function (Blueprint $table) {
-            $table->increments('product_type_code')->primary();
-            $table->integer('parent_product_type_code');
-            $table->string('product_type_description');
+        Schema::create('payments', function (Blueprint $table) {
+            $table->increments('payment_id')->primary();
+            $table->foreign('invoice_number')->references('invoice_number')->on('invoices');
+            $table->date('payment_date');
+            $table->integer('payment_amount');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateRefProductTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_product_types');
+        Schema::dropIfExists('payments');
     }
 }

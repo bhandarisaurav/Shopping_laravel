@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRefProductTypesTable extends Migration
+class CreateShipmentItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateRefProductTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ref_product_types', function (Blueprint $table) {
-            $table->increments('product_type_code')->primary();
-            $table->integer('parent_product_type_code');
-            $table->string('product_type_description');
+        Schema::create('shipment_items', function (Blueprint $table) {
+            $table->foreign('shipment_id')->references('shipment_id')->on('shipments')->primary();
+            $table->foreign('order_item_id')->references('order_item_id')->on('order_items')->primary();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateRefProductTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_product_types');
+        Schema::dropIfExists('shipment_items');
     }
 }

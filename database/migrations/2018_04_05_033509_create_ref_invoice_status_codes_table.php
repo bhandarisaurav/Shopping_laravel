@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRefProductTypesTable extends Migration
+class CreateRefInvoiceStatusCodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateRefProductTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ref_product_types', function (Blueprint $table) {
-            $table->increments('product_type_code')->primary();
-            $table->integer('parent_product_type_code');
-            $table->string('product_type_description');
+        Schema::create('ref_invoice_status_codes', function (Blueprint $table) {
+            $table->increments('invoice_status_code')->primary();
+            $table->string('invoice_status_description');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateRefProductTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_product_types');
+        Schema::dropIfExists('ref_invoice_status_codes');
     }
 }
