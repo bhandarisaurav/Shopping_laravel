@@ -14,10 +14,13 @@ class CreateOrderItemsTable extends Migration
     public function up()
     {
         Schema::create('order_items', function (Blueprint $table) {
-            $table->increments('order_item_id')->primary();
+            $table->increments('order_item_id');
+            $table->integer('product_id')->unsigned();
+            $table->integer('order_id')->unsigned();
+            $table->integer('order_item_status_code')->unsigned();
             $table->foreign('product_id')->references('product_id')-> on ('products');
             $table->foreign('order_id')->references('order_id')-> on ('orders');
-            $table->integer('order_item_status_code')->references('order_item_status_code')-> on ('ref_order_item_status_codes');
+            $table->foreign('order_item_status_code')->references('order_item_status_code')-> on ('ref_order_item_status_codes');
             $table->integer('order_item_quantity');
             $table->integer('order_item_price');
             $table->integer('rma_number');

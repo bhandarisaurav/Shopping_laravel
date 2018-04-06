@@ -14,8 +14,10 @@ class CreateShipmentItemsTable extends Migration
     public function up()
     {
         Schema::create('shipment_items', function (Blueprint $table) {
-            $table->foreign('shipment_id')->references('shipment_id')->on('shipments')->primary();
-            $table->foreign('order_item_id')->references('order_item_id')->on('order_items')->primary();
+            $table->integer('shipment_id')->unsigned();
+            $table->integer('order_item_id')->unsigned();
+            $table->foreign('shipment_id')->references('shipment_id')->on('shipments');
+            $table->foreign('order_item_id')->references('order_item_id')->on('order_items');
             $table->timestamps();
         });
     }

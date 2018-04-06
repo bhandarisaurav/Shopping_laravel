@@ -14,7 +14,9 @@ class CreateShipmentsTable extends Migration
     public function up()
     {
         Schema::create('shipments', function (Blueprint $table) {
-            $table->increments('shipment_id')->primary();
+            $table->increments('shipment_id');
+            $table->integer('order_id')->unsigned();
+            $table->integer('invoice_number')->unsigned();
             $table->foreign('order_id')->references('order_id')->on('orders');
             $table->foreign('invoice_number')->references('invoice_number')->on('invoices');
             $table->integer('shipment_tracking_number');

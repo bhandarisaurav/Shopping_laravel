@@ -14,7 +14,7 @@ class CreateRefInvoiceStatusCodesTable extends Migration
     public function up()
     {
         Schema::create('ref_invoice_status_codes', function (Blueprint $table) {
-            $table->increments('invoice_status_code')->primary();
+            $table->increments('invoice_status_code');
             $table->string('invoice_status_description');
             $table->timestamps();
         });

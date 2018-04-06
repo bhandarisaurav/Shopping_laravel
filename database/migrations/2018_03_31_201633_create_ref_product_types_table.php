@@ -14,9 +14,10 @@ class CreateRefProductTypesTable extends Migration
     public function up()
     {
         Schema::create('ref_product_types', function (Blueprint $table) {
-            $table->increments('product_type_code')->primary();
-            $table->integer('parent_product_type_code');
-            $table->string('product_type_description');error
+            $table->increments('product_type_code');
+            $table->integer('parent_product_type_code')->unsigned();
+            $table->foreign('parent_product_type_code')->references('product_type_code')->on('ref_product_types');
+            $table->string('product_type_description');
             $table->timestamps();
         });
     }

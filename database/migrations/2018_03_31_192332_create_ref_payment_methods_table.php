@@ -14,7 +14,7 @@ class CreateRefPaymentMethodsTable extends Migration
     public function up()
     {
         Schema::create('ref_payment_methods', function (Blueprint $table) {
-            $table->increments('payment_method_code')->primary();
+            $table->increments('payment_method_code');
             $table->string('payment_method_description');
             $table->timestamps();
         });

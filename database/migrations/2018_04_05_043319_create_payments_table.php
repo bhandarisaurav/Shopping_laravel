@@ -14,7 +14,8 @@ class CreatePaymentsTable extends Migration
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->increments('payment_id')->primary();
+            $table->increments('payment_id');
+            $table->integer('invoice_number')->unsigned();
             $table->foreign('invoice_number')->references('invoice_number')->on('invoices');
             $table->date('payment_date');
             $table->integer('payment_amount');

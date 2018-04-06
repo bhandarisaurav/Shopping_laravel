@@ -14,7 +14,7 @@ class CreateRefOrderStatusCodesTable extends Migration
     public function up()
     {
         Schema::create('ref_order_status_codes', function (Blueprint $table) {
-            $table->increments('order_status_code')->primary();
+            $table->increments('order_status_code');
             $table->string('order_status_description');
             $table->timestamps();
         });

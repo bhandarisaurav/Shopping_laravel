@@ -14,7 +14,9 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->increments('order_id')->primary();
+            $table->increments('order_id');
+            $table->integer('customer_id')->unsigned();
+            $table->integer('order_status_code')->unsigned();
             $table->foreign('customer_id')->references('customer_id')->on('customers');
             $table->foreign('order_status_code')->references('order_status_code')->on('ref_order_status_codes');
             $table->date('date_order_placed');
