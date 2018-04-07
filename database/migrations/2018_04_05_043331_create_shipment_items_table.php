@@ -18,6 +18,7 @@ class CreateShipmentItemsTable extends Migration
             $table->integer('order_item_id')->unsigned();
             $table->foreign('shipment_id')->references('shipment_id')->on('shipments');
             $table->foreign('order_item_id')->references('order_item_id')->on('order_items');
+            $table->primary(array('shipment_id', 'order_item_id'));
             $table->timestamps();
         });
     }
