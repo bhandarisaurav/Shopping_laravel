@@ -29,7 +29,7 @@
         <div class="checkbox">
             <label><input type="checkbox" name="remember"> Remember me</label>
         </div>
-        <input type="submit" class="btn btn-default">Submit</input>
+        <input type="submit" class="btn btn-default"/>
     </form>
 </div>
 
