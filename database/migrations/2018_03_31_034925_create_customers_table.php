@@ -15,21 +15,21 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('customer_id');
-            $table->string('organisation_or_person');
-            $table->char('gender');
-            $table->string('first_name');
-            $table->string('middle_initial');
-            $table->string('last_name');
-            $table->string('email_address');
-            $table->string('login_name');
-            $table->string('login_password');
-            $table->string('address_line_1');
-            $table->string('address_line_2');
-            $table->string('address_line_3');
-            $table->string('address_line_4');
-            $table->string('town_city');
-            $table->string('county');
-            $table->string('country');
+            $table->string('organisation_or_person')->nullable();
+            $table->char('gender')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('middle_initial')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email_address')->nullable();
+            $table->string('login_name')->nullable();
+            $table->string('login_password')->nullable();
+            $table->string('address_line_1')->nullable();
+            $table->string('address_line_2')->nullable();
+            $table->string('address_line_3')->nullable();
+            $table->string('address_line_4')->nullable();
+            $table->string('town_city')->nullable();
+            $table->string('county')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }
